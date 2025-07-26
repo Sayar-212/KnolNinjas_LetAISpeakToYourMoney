@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# Virtual environment
+.venv/
+env/
+ENV/
+venv/
+
+# uv/poetry lock files (optional to ignore)
+poetry.lock
+uv.lock
+
+# macOS/Linux
+.DS_Store
+*.swp
+
+# IDEs/editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Docker
+*.tar
+*.bak
+*.tmp
+docker-compose.override.yml
+
+# Byte-compiled / cache
+*.egg-info/
+.eggs/
+*.egg
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+coverage.*
+.cache
+pytest_cache/
+
+# Build artifacts
+build/
+dist/
+*.whl
+
+# Misc
+*.sqlite3
+*.db
+*.pid
+*.pid.lock

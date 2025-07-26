@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+    host-agent:
+        build:
+            context: ./host_agent
+        ports:
+            - "8080:8080"
+        command: uv run __main__.py --host 0.0.0.0 --port 8080
+        working_dir: /app
+        volumes:
+            - ./host_agent:/app
+
+    cs-agent:
+        build:
+            context: ./agents/CSAgent
+        ports:
+            - "8083:8083"
+        command: uv run __main__.py --host 0.0.0.0 --port 8083
+        working_dir: /app
+        volumes:
+            - ./agents/CSAgent:/app
+
+    sfa-agent:
+        build:
+            context: ./agents/SmartFinancialAdvisorAgent
+        ports:
+            - "8084:8084"
+        command: uv run __main__.py --host 0.0.0.0 --port 8084
+        working_dir: /app
+        volumes:
+            - ./agents/SmartFinancialAdvisorAgent:/app
+
+    comprehensive-agent:
+        build:
+            context: ./agents/ComprehensiveReceiptAgent
+        ports:
+            - "8082:8082"
+        command: uv run __main__.py --host 0.0.0.0 --port 8082
+        working_dir: /app
+        volumes:
+            - ./agents/ComprehensiveReceiptAgent:/app
