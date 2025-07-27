@@ -1,0 +1,2 @@
+agents:
+  - path: agents.agent:root_agent
