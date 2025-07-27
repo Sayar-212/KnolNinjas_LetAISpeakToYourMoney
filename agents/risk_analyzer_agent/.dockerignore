@@ -1,0 +1,18 @@
+# Prevent virtual environments and Python cache from being copied
+.venv
+.venv/
+env/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore git and editor folders
+.git
+.gitignore
+.vscode/
+.idea
+
+# Ignore logs and other clutter
+*.log

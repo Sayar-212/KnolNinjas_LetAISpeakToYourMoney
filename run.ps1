@@ -20,7 +20,7 @@ $hostPath = Join-Path -Path $basePath -ChildPath "host_agent"
 Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd `"$hostPath`"; uv run __main__.py --host localhost --port 8080"
 
 # Wait for all services to start
-Start-Sleep -Seconds 5
+Start-Sleep -Seconds 10
 
 # Health check for host agent using status code
 try {
