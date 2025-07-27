@@ -10,6 +10,7 @@ import httpx
 
 from a2a.types import FilePart, FileWithUri, Message, Part
 from fastapi import FastAPI, Request, Response
+from fastapi.middleware.cors import CORSMiddleware
 
 from service.types import (
     CreateConversationResponse,
@@ -61,6 +62,20 @@ class ConversationServer:
         self._message_to_cache: dict[
             str, str
         ] = {}  # dict[str, str] maps message id to cache id
+        origins = [
+            "http://localhost:5173",  # React/Vite dev server
+            "http://127.0.0.1:5173",
+            "https://your-frontend-domain.com",
+            "*",  # ⚠️ Allow all origins (for development only)
+        ]
+
+        # app.add_middleware(
+        #     CORSMiddleware,
+        #     allow_origins=origins,  # List of allowed origins
+        #     allow_credentials=True,
+        #     allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
+        #     allow_headers=["*"],  # Allow all headers
+        # )
 
         app.add_api_route("/health", lambda: "Server is running", methods=["GET"])
         app.add_api_route(

@@ -40,3 +40,33 @@ services:
         working_dir: /app
         volumes:
             - ./agents/ComprehensiveReceiptAgent:/app
+
+    ip-agent:
+        build:
+            context: ./agents/investment_planner_agent
+        ports:
+            - "8086:8086"
+        command: uv run __main__.py --host 0.0.0.0 --port 8086
+        working_dir: /app
+        volumes:
+            - ./agents/investment_planner_agent:/app
+
+    ra-agent:
+        build:
+            context: ./agents/risk_analyzer_agent
+        ports:
+            - "8085:8085"
+        command: uv run __main__.py --host 0.0.0.0 --port 8085
+        working_dir: /app
+        volumes:
+            - ./agents/risk_analyzer_agent:/app
+
+    fi-agent:
+        build:
+            context: ./agents/FiMoneyAgent
+        ports:
+            - "8090:8090"
+        command: uv run __main__.py --host 0.0.0.0 --port 8090
+        working_dir: /app
+        volumes:
+            - ./agents/FiMoneyAgent:/app

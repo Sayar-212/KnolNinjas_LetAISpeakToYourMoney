@@ -6,6 +6,9 @@ $agents = @(
     @{ Name = "ComprehensiveReceiptAgent"; Port = 8084; Id = 101 },
     @{ Name = "CSAgent"; Port = 8082; Id = 102 },
     @{ Name = "SmartFinancialAdvisorAgent"; Port = 8083; Id = 103 }
+    @{ Name = "risk_analyzer_agent"; Port = 8085; Id = 104 }
+    @{ Name = "investment_planner_agent"; Port = 8086; Id = 105 }
+    @{ Name = "FiMoneyAgent"; Port = 8090; Id = 106 }
 )
 
 # Start each agent in a new PowerShell window
@@ -20,7 +23,7 @@ $hostPath = Join-Path -Path $basePath -ChildPath "host_agent"
 Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd `"$hostPath`"; uv run __main__.py --host localhost --port 8080"
 
 # Wait for all services to start
-Start-Sleep -Seconds 5
+Start-Sleep -Seconds 50
 
 # Health check for host agent using status code
 try {
