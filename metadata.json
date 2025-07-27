@@ -1,0 +1,8 @@
+
+{
+  "name": "Project Arthasashtri: AI Financial Co-pilot",
+  "description": "An AI-native Financial Operating System that provides Goldman Sachs-level financial intelligence in a conversational, accessible way. It acts as a financial co-pilot to help users optimize their financial health.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

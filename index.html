@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Arthasashtri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              'gradient-x': 'gradient-x 3s ease infinite',
+              'spin-slow': 'spin-slow 25s linear infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse-slow 4s ease-in-out infinite',
+              'letter-zoom': 'letter-zoom 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards',
+              'inward-zoom': 'inward-zoom 2s ease-out forwards',
+              'burden-lift': 'burden-lift 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+              'relief-fade': 'relief-fade 1.5s ease-out forwards'
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+              'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto+Mono&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-roboto-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        /* Scrollbar styles for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #171717;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3f3f46;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #52525b;
+        }
+
+        :root {
+            --color-accent-rgb: 34 211 238; /* Default: cyan-400 */
+        }
+        .accent-color {
+            color: rgb(var(--color-accent-rgb));
+        }
+        .bg-accent {
+            background-color: rgb(var(--color-accent-rgb));
+        }
+        .ring-accent {
+            --tw-ring-color: rgb(var(--color-accent-rgb));
+        }
+
+        /* Smooth premium animations */
+        @keyframes gradient-x {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        @keyframes spin-slow {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        @keyframes letter-zoom {
+            0% { transform: scale(0) rotateY(180deg); opacity: 0; }
+            50% { transform: scale(1.2) rotateY(90deg); opacity: 0.7; }
+            100% { transform: scale(1) rotateY(0deg); opacity: 1; }
+        }
+        @keyframes inward-zoom {
+            0% { transform: perspective(1000px) rotateX(90deg) scale(0.5); opacity: 0; }
+            100% { transform: perspective(1000px) rotateX(0deg) scale(1); opacity: 1; }
+        }
+        @keyframes burden-lift {
+            0% { transform: translateY(100px) scale(0.8); opacity: 0; filter: blur(10px); }
+            30% { transform: translateY(50px) scale(0.9); opacity: 0.3; filter: blur(5px); }
+            60% { transform: translateY(20px) scale(0.95); opacity: 0.7; filter: blur(2px); }
+            100% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0px); }
+        }
+        @keyframes relief-fade {
+            0% { transform: translateY(50px); opacity: 0; filter: brightness(0.3); }
+            50% { transform: translateY(25px); opacity: 0.5; filter: brightness(0.7); }
+            100% { transform: translateY(0); opacity: 1; filter: brightness(1); }
+        }
+        .animate-gradient-x {
+            background-size: 200% 200%;
+            animation: gradient-x 3s ease infinite;
+        }
+        .animate-spin-slow {
+            animation: spin-slow 25s linear infinite;
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 4s ease-in-out infinite;
+        }
+        .animate-letter-zoom {
+            animation: letter-zoom 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            transform: scale(0);
+        }
+        .animate-inward-zoom {
+            animation: inward-zoom 2s ease-out forwards;
+        }
+        .animate-burden-lift {
+            animation: burden-lift 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        .animate-relief-fade {
+            animation: relief-fade 1.5s ease-out forwards;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        /* Smooth transitions */
+        * {
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.11.0",
+    "recharts": "https://esm.sh/recharts@^2.12.7"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-[#131314]">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
